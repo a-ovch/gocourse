@@ -23,7 +23,10 @@ type DeafMuteDuck struct {
 }
 
 func NewDeafMuteDuck() *DeafMuteDuck {
-	return &DeafMuteDuck{duck{noFlight{}, noQuack}}
+	d := DeafMuteDuck{}
+	d.flightBehavior = noFlight{}
+	d.quackBehavior = noQuack
+	return &d
 }
 
 type ReactiveLoudDuck struct {
