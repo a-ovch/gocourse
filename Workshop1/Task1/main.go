@@ -18,12 +18,24 @@ func fizzBuzz(roundsCount int) string {
 			result += ", "
 		}
 
-		if i%3 == 0 {
-			result += "Fizz"
-		} else if i%5 == 0 {
-			result += "Buzz"
-		} else {
+		isFizz := i%3 == 0
+		isBuzz := i%5 == 0
+
+		if !isFizz && !isBuzz {
 			result += strconv.Itoa(i)
+			continue
+		}
+
+		if isFizz {
+			result += "Fizz"
+
+			if isBuzz {
+				result += " "
+			}
+		}
+
+		if isBuzz {
+			result += "Buzz"
 		}
 	}
 
