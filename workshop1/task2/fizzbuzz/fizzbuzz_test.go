@@ -7,6 +7,7 @@ func TestFizzBuzz(t *testing.T) {
 		roundsCount int
 		expected    string
 	}{
+		{-10, ""},
 		{0, ""},
 		{1, "1"},
 		{2, "1, 2"},
