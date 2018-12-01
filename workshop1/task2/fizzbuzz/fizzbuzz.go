@@ -1,27 +1,30 @@
 package fizzbuzz
 
-import "strconv"
+import (
+	"bytes"
+	"strconv"
+)
 
 func FizzBuzz(roundsCount int) string {
-	var result string = ""
+	var resBuffer bytes.Buffer
 	for i := 1; i <= roundsCount; i++ {
 		if i > 1 {
-			result += ", "
+			resBuffer.WriteString(", ")
 		}
 
 		isFizz := i%3 == 0
 		isBuzz := i%5 == 0
 
 		if isFizz && isBuzz {
-			result += "Fizz Buzz"
+			resBuffer.WriteString("Fizz Buzz")
 		} else if isFizz {
-			result += "Fizz"
+			resBuffer.WriteString("Fizz")
 		} else if isBuzz {
-			result += "Buzz"
+			resBuffer.WriteString("Buzz")
 		} else {
-			result += strconv.Itoa(i)
+			resBuffer.WriteString(strconv.Itoa(i))
 		}
 	}
 
-	return result
+	return resBuffer.String()
 }

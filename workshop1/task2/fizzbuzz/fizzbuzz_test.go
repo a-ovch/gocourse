@@ -5,7 +5,7 @@ import "testing"
 func TestFizzBuzz(t *testing.T) {
 	cases := []struct {
 		roundsCount int
-		expected    string
+		want        string
 	}{
 		{-10, ""},
 		{0, ""},
@@ -18,8 +18,26 @@ func TestFizzBuzz(t *testing.T) {
 
 	for _, c := range cases {
 		got := FizzBuzz(c.roundsCount)
-		if got != c.expected {
-			t.Errorf("FizzBuzz(%v) == %v, want %v", c.roundsCount, got, c.expected)
+		if got != c.want {
+			t.Errorf("FizzBuzz(%v) == %v, want %v", c.roundsCount, got, c.want)
 		}
+	}
+}
+
+func BenchmarkFizzBuzz10(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		FizzBuzz(10)
+	}
+}
+
+func BenchmarkFizzBuzz1000(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		FizzBuzz(1000)
+	}
+}
+
+func BenchmarkFizzBuzz1000000(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		FizzBuzz(1000000)
 	}
 }
