@@ -16,10 +16,11 @@ func playWithDuck(d duck.Duck) string {
 	var buffer bytes.Buffer
 
 	for i := 0; i < 3; i++ {
+		buffer.WriteString("Fly: ")
 		buffer.WriteString(d.Fly())
-		buffer.WriteString("||")
+		buffer.WriteString("\nQuack: ")
 		buffer.WriteString(d.Quack())
-		buffer.WriteString("\n")
+		buffer.WriteString("\n\n")
 	}
 
 	return buffer.String()
